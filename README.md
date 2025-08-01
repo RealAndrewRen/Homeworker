@@ -14,13 +14,15 @@ Homeworker is a Discord bot designed to help students keep track of their assign
 ---
 
 ## Command Reference
-h?q <question>                 # Ask a question
-h?dq <question>                # Delete your own question
-h?lq                           # List all current questions
-h?aq <ID> <answer>             # Answer a question by ID, sends DM to asker
-h?r <time> "<reminder>"        # Set a reminder (e.g. h?r 1h "Finish math HW")
-h?ping                         # Show bot latency
-h?help                         # Display this help page
+| **Command**            | **Description**                                  |
+|------------------------|--------------------------------------------------|
+| `h?q <question>`       | Ask a question                                   |
+| `h?dq <question>`      | Delete your own question                          |
+| `h?lq`                 | List all current questions                        |
+| `h?aq <ID> <answer>`   | Answer a question by ID, sends DM to asker       |
+| `h?r <time> "<reminder>"` | Set a reminder (e.g. `h?r 1h "Finish math HW"`) |
+| `h?ping`               | Show bot latency                                 |
+| `h?help`               | Display this help page                           |
 
 ---
 
