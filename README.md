@@ -1,4 +1,4 @@
-#Homeworker: A Discord Assignment Logging Bot
+# Homeworker: A Discord Assignment Logging Bot
 
 Homeworker is a Discord bot designed to help students keep track of their assignments within their study servers. It enables users to add, view, and manage homework tasks using simple chat commands.
 
