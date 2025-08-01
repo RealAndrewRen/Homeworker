@@ -5,10 +5,19 @@ from datetime import datetime, timedelta
 import os
 import asyncio
 from discord.ext.commands import MemberConverter
-from keep_alive import keep_alive
+from dotenv import load_dotenv
+import os
 
-cmd_prefix = "h?"    #prefix, can be changed later if we need it 
-client = commands.Bot(command_prefix = cmd_prefix, help_command = None) 
+load_dotenv()
+token = os.getenv("DISCORD_BOT_SECRET")
+
+cmd_prefix = 'h?'  #prefix, can be changed later if we need it
+
+intents = discord.Intents.default()
+intents.message_content = True  # Required to read message content
+
+client = commands.Bot(command_prefix=cmd_prefix, help_command=None, intents=intents)
+ 
 questionList = []
 blacklist = []
 questionIDCounter = 0
@@ -277,17 +286,17 @@ def getCompiledID(compiledQuestionString):
   return compiledQuestionString[delimiter:]
 
 def constructBlacklist():
-  f = open("blacklist.txt", "r")
-  for x in blacklist:
-    l = f.nextline()
-    if(l!=""):
-      blacklist.append(l)
+  try:
+    with open("blacklist.txt", "r") as f:
+      for line in f:
+        clean = line.strip()
+        if clean:
+          blacklist.append(clean)
+  except FileNotFoundError:
+    print("blacklist.txt not found.")
 
 def isInBlacklist(user):
-  for x in blacklist:
-    if(x==user):
-      return true
+  return user in blacklist
 
-keep_alive()
 token = os.environ.get("DISCORD_BOT_SECRET")
 client.run(token)
